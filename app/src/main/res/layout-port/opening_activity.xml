@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/opening_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:tag="@string/portrait_layout_tag" 
+    android:gravity="center">
+
+    <LinearLayout
+       android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/field_worker_login_container"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:paddingTop="100dp" 
+            />
+
+        <FrameLayout
+            android:id="@+id/supervisor_login_container"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/login_pref_container"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</LinearLayout>

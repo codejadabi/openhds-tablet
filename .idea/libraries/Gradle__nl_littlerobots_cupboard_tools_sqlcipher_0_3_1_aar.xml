@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: nl.littlerobots.cupboard-tools:sqlcipher:0.3.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7057ed05ee85c1f77755b32e66ebc6e8/jetified-sqlcipher-0.3.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7057ed05ee85c1f77755b32e66ebc6e8/jetified-sqlcipher-0.3.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7057ed05ee85c1f77755b32e66ebc6e8/jetified-sqlcipher-0.3.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/nl.littlerobots.cupboard-tools/sqlcipher/0.3.1/8136fb674aeed8efd663cd3cfeda33f691265f33/sqlcipher-0.3.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/nl.littlerobots.cupboard-tools/sqlcipher/0.3.1/6c14b94f98925578f926c89fdd459abcc174b569/sqlcipher-0.3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" 
+        android:animateLayoutChanges="true">
+        
+        <TextView
+            android:id="@android:id/text1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Events"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+            
+        <Button
+            android:id="@+id/findLocationGeoPointBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:enabled="false"
+            android:text="@string/findLocationGeoPointBtn_lbl" />
+
+        <Button
+            android:id="@+id/createLocationBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/createLocationBtn_lbl" />
+
+        <Button
+            android:id="@+id/createVisitBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/createVisitBtn_lbl" />
+            
+	     <Button
+	        android:id="@+id/changeHouseholdHeadBtn"
+	        android:layout_width="150dp"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="22dp"
+	        android:layout_marginLeft="20dp"
+	        android:layout_gravity="center"
+	        android:text="@string/changeHouseholdHeadBtn_lbl"
+	        android:enabled="false"  />            
+
+        <Button
+            android:id="@+id/clearIndividualBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/clearIndividualBtn_lbl" />
+
+        <Button
+            android:id="@+id/householdBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:enabled="false"
+            android:text="@string/householdBtn_lbl" />
+
+        <Button
+            android:id="@+id/membershipBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/membershipBtn_lbl" />
+
+        <Button
+            android:id="@+id/relationshipBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/relationshipBtn_lbl" />
+
+        <Button
+            android:id="@+id/inMigrationBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/inMigrationBtn_lbl" />
+
+        <Button
+            android:id="@+id/outMigrationBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/outMigrationBtn_lbl" />
+
+        <Button
+            android:id="@+id/pregRegBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/pregRegBtn_lbl" />
+
+        <Button
+            android:id="@+id/birthRegBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/birthRegBtn_lbl" />
+
+        <Button
+            android:id="@+id/deathBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:text="@string/deathBtn_lbl" />
+
+        <Button
+            android:id="@+id/finishVisitBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:enabled="false"
+            android:text="@string/finishVisitBtn_lbl" />
+
+    </LinearLayout>
+
+</ScrollView>
