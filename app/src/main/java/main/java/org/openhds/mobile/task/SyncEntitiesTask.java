@@ -1,5 +1,6 @@
 package org.openhds.mobile.task;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -167,9 +168,9 @@ public class SyncEntitiesTask extends
 		creds = new UsernamePasswordCredentials(username, password);
 
 		HttpParams httpParameters = new BasicHttpParams();
-		HttpConnectionParams.setConnectionTimeout(httpParameters, 60000);
-		HttpConnectionParams.setSoTimeout(httpParameters, 90000);
-		HttpConnectionParams.setSocketBufferSize(httpParameters, 8192);
+		HttpConnectionParams.setConnectionTimeout(httpParameters, 600000);
+		HttpConnectionParams.setSoTimeout(httpParameters, 900000);
+		HttpConnectionParams.setSocketBufferSize(httpParameters, 18192);
 		client = new DefaultHttpClient(httpParameters);
 
 		// at this point, we don't care to be smart about which data to
@@ -179,7 +180,7 @@ public class SyncEntitiesTask extends
 		try {
 			entity = Entity.SETTINGS;
 			processUrl(baseurl + API_PATH + "/settings");
-			
+
 			entity = Entity.LOCATION_HIERARCHY;
 			processUrl(baseurl + API_PATH + "/locationhierarchies");
 
@@ -296,11 +297,14 @@ public class SyncEntitiesTask extends
 		 	if (zipInputStream != null){
 		 		Log.d("download", "zip = "+zipInputStream);
 		 		processZIPDocument(zipInputStream);
-		 		zipInputStream.close();
+				System.out.println("##############################data is not XML");
+
+				zipInputStream.close();
 		 	}
 		 		
 		}else{
 		 	if (inputStream != null)
+		 		System.out.println("##############################data is XML");
 		 		processXMLDocument(inputStream);
 		}
 	}
@@ -532,39 +536,62 @@ public class SyncEntitiesTask extends
 		parser.nextTag();
 		OpenHDSProvider provider = OpenHDSProvider.CURRENT_PROVIDER;
 		 Log.d("provider-hacking", ""+provider);
-		 		
-		 SQLiteDatabase db = provider.openDatabaseForFastInsert();
+
+		SQLiteDatabase db = provider.openDatabaseForFastInsert();
 		values.clear();
 		List<ContentValues> individualSocialGroups = new ArrayList<ContentValues>();
+		int indvidual_count = 0;
 		while (notEndOfXmlDoc("individuals", parser)) {
+			System.out.println("############################################  "+ indvidual_count +  "#################################################");
+
+
+
+			indvidual_count++;
+
 			try {
 				ContentValues cv = new ContentValues();
+				System.out.println("############################################  "+ indvidual_count +  "#################################################");
+
 				// memberships
+
 				parser.nextTag();
+
 				parser.nextTag();
+
 				List<String> groups = null;
 				if (parser.getEventType() != XmlPullParser.END_TAG) {
+
 					// memberships are present
 					groups = parseMembershipExtIds(parser);
 				}
-
 				// residencies
 				parser.nextTag();
+
 				parser.nextTag();
+				System.out.println("############################################  s #################################################");
+
+
 				if (parser.getEventType() != XmlPullParser.END_TAG) {
-					parser.nextTag(); // <endType>
+					parser.nextTag();
+
+					// <endType>
 					// parser.nextTag(); // </endType>
 					cv.put(OpenHDS.Individuals.COLUMN_RESIDENCE_END_TYPE,
 							parser.nextText());
+
 					parser.nextTag(); // <location>
+					System.out.println("############################################  d  #################################################");
+
+
 					parser.nextTag(); // <extId>
 					cv.put(OpenHDS.Individuals.COLUMN_INDIVIDUAL_RESIDENCE,
 							parser.nextText());
 					parser.nextTag(); // </location>
 					parser.nextTag(); // </residency>
 					parser.nextTag(); // </residencies>
-				}
+					System.out.println("############################################  f  #################################################");
 
+				}
 				parser.nextTag();
 				cv.put(OpenHDS.Individuals.COLUMN_INDIVIDUAL_DOB,
 						parser.nextText());
@@ -574,7 +601,6 @@ public class SyncEntitiesTask extends
 						parser.nextText());
 				lastExtId = cv
 						.getAsString(OpenHDS.Individuals.COLUMN_INDIVIDUAL_EXTID);
-
 				// father
 				parser.nextTag(); // <father>
 				parser.nextTag(); // <memberships>
@@ -582,6 +608,10 @@ public class SyncEntitiesTask extends
 				parser.nextTag(); // <residencies>
 				parser.nextTag(); // </residencies>
 				parser.nextTag(); // <extId>
+				System.out.println("############################################  g  #################################################");
+
+
+
 				cv.put(OpenHDS.Individuals.COLUMN_INDIVIDUAL_FATHER,
 						parser.nextText());
 				parser.nextTag(); // </father>
@@ -593,6 +623,8 @@ public class SyncEntitiesTask extends
 				parser.nextTag();
 				cv.put(OpenHDS.Individuals.COLUMN_INDIVIDUAL_GENDER,
 						parser.nextText());
+				System.out.println("############################################  h  #################################################");
+
 
 				parser.nextTag();
 				cv.put(OpenHDS.Individuals.COLUMN_INDIVIDUAL_LASTNAME,
@@ -601,6 +633,7 @@ public class SyncEntitiesTask extends
 				parser.nextTag();
 				if ("middlename".equalsIgnoreCase(parser.getName())) {
 					parser.nextText();
+
 				}
 
 				// mother
@@ -613,6 +646,8 @@ public class SyncEntitiesTask extends
 				cv.put(OpenHDS.Individuals.COLUMN_INDIVIDUAL_MOTHER,
 						parser.nextText());
 				parser.nextTag(); // </mother>
+				System.out.println("############################################  j  #################################################");
+
 
 				//values.add(cv);
 
@@ -626,6 +661,7 @@ public class SyncEntitiesTask extends
 		 				//persist individual socialgroup, insert one by one
 		 				provider.insert(db, OpenHDS.IndividualGroups.CONTENT_ID_URI_BASE, socialGroups);
 					}
+
 				}
 
 				individualsParsed += 1;
@@ -637,6 +673,7 @@ public class SyncEntitiesTask extends
 					//skip again to next element
 					parser.nextText();
 					parser.nextTag(); // </individual>
+
 				}
 				parser.nextTag(); // </individuals> or <individual>
 
@@ -644,9 +681,14 @@ public class SyncEntitiesTask extends
 					//(individualSocialGroups);
 					//values.clear();
 					//individualSocialGroups.clear();
+
 					publishProgress(individualsParsed);
 				}
 			} catch (Exception e) {
+				System.out.println("#############################################################################################");
+				System.out.println("######################## here we are inside he exception again###############################");
+				System.out.println("#############################################################################################");
+				System.out.println(e.getMessage());
 				Log.e(getClass().getName(), e.getMessage());
 			}
 		}

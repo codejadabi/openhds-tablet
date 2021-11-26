@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/openhds-tablet-master.iml" filepath="$PROJECT_DIR$/.idea/modules/openhds-tablet-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/openhds-tablet-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/openhds-tablet-master.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/openhds-tablet.iml" filepath="$PROJECT_DIR$/.idea/modules/openhds-tablet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/openhds-tablet.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/openhds-tablet.app.iml" />
     </modules>
   </component>
 </project>
